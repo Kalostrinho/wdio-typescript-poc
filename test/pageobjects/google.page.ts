@@ -1,4 +1,5 @@
 import { ChainablePromiseArray, ChainablePromiseElement } from 'webdriverio'
+import * as Log from '../utils/coolLogs'
 
 abstract class GooglePage {
   
@@ -46,6 +47,7 @@ abstract class GooglePage {
    * @param {String} searchText - Value to search 
    */
   public static async search(searchText: string): Promise<void> {
+    await Log.step(`Attempting to search on Google for [${searchText}]...`)
     await this.inputSearch.setValue(searchText)
     await browser.keys("Enter")
   }
@@ -54,6 +56,7 @@ abstract class GooglePage {
    * Clicks the "Feeling lucky" button.
    */
    public static async feelingLucky(): Promise<void> {
+    await Log.step(`Attempting to click "Feeling lucky" button on Google page...`)
     await this.btnFeelingLucky.click()
   }
 
@@ -61,7 +64,9 @@ abstract class GooglePage {
    * Opens Google website
    */
   public static open() {
+    Log.step('Opening Google main page...')
     browser.url('https://www.google.com/')
+    Log.note('Google page is open!')
   }
 }
 
