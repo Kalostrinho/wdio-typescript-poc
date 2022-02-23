@@ -1,1 +1,8 @@
+# Dependencies
 node_modules/
+
+# IDE configuration folders
+.idea/
+
+# iOS non-sense
+.DS_Store
