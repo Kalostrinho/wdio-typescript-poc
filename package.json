@@ -25,7 +25,7 @@
     "scripts": {
         "lint": "eslint test",
         "lint:fix": "eslint --fix test",
-        "wdio:run": "wdio run wdio.conf.ts",
+        "wdio:test": "wdio run wdio.conf.ts",
         "wdio:dev": "wdio run --watch wdio.conf.ts"
     },
     "dependencies": {
