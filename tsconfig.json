@@ -6,6 +6,9 @@
             "@wdio/mocha-framework",
             "expect-webdriverio"
         ],
-        "target": "ES5"
+        "target": "ES2017",
+        "downlevelIteration": true,
+        "module": "commonjs"
+
     }
 }
