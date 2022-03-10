@@ -23,6 +23,12 @@ describe('Google search', () => {
         await Log.success('Search was executed on Google!')
     })
 
+    it('should validate that the search term was actually "cats"', async () => { 
+        await Log.step('Validating the search was about CATS!')
+        const searchText = await GooglePage.inputSearch.getValue()
+        await expect(searchText).toEqual('cats')
+    })
+
     it('should show "Images" and "Videos" tabs along with the results', async () => {
         await Log.step('Validating available tabs after results are shown...')
         await expect(GooglePage.tabImages).toBeDisplayed()
@@ -42,6 +48,12 @@ describe('Google search', () => {
         await images[1].click() 
         await expect(GooglePage.btnVisit).toBeDisplayed()
         await Log.success('Second image information was displayed! (Visit button was available)')
+    })
+
+    it('should validate that the hypotetical "open image in new tab" button does not exist', async () => {
+        await Log.step('Attempting to select "Open in a new tab"')
+        await Log.failure('--- This will fail on purpose ---')
+        await expect(GooglePage.btnOpenNewTab).toBeDisplayed()
     })
 
 })

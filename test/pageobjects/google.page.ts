@@ -42,6 +42,11 @@ abstract class GooglePage {
     return $('=Visit')
   }
 
+  //  --- This button does not actually exist!!
+  public static get btnOpenNewTab(): ChainablePromiseElement<Promise<WebdriverIO.Element>> {
+    return $('=Open in new tab')
+  }
+
   /**
    * Executes a search within Google landing page.
    * @param {String} searchText - Value to search 
